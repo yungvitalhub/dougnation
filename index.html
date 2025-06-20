@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dougnation - Creative Design Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-bar {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animation for stats */
+        @keyframes countUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .count-up {
+            animation: countUp 1s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="https://yungvitalhub.github.io/images/yellowicon.png" alt="Dougnation Logo">
+                        <span class="ml-2 text-xl font-bold text-gray-900">DOUGNATION</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#about" class="nav-link text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Skills</a>
+                    <a href="#pricing" class="nav-link text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Pricing</a>
+                    <a href="#portfolio" class="nav-link text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Portfolio</a>
+                    <a href="#contact" class="nav-link text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="https://t.me/+ID3Ze3h1W2JhMDJk" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">Start Now</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Skills</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Pricing</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Portfolio</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+                <a href="https://t.me/+ID3Ze3h1W2JhMDJk" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-base font-medium mt-2">Start Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block">Hi, I'm Doug</span>
+                        <span class="block text-blue-600">Designer & Creative Writer</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        Turning ideas into impactful visuals that tell your brand's story. JUST TRUST US BRO.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                            <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition duration-300">
+                                Get in Touch
+                            </a>
+                            <a href="#portfolio" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10 transition duration-300">
+                                View Work
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">About Me</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    The Creative Mind Behind Dougnation
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Brand Designer, Creative Writer,Web Developer, Graphic Designer and UI/UX Designer & Batman.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                    <div class="relative">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg h-64 md:h-80 lg:h-96">
+                            <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Doug working">
+                        </div>
+                        <div class="mt-6 bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <img class="h-12 w-12 rounded-full" src="https://yungvitalhub.github.io/images/yellowicon.png" alt="Douglas K. Wekesa">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Douglas K. Wekesa</h4>
+                                    <p class="text-gray-600">CEO at Doug Nation</p>
+                                </div>
+                            </div>
+                            <blockquote class="mt-4 text-gray-600">
+                                <p>"Someone had to save you from a web disaster."</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="mt-10 lg:mt-0">
+                        <div class="space-y-10">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">Who I Am</h3>
+                                <p class="mt-2 text-gray-600">
+                                    I'm Doug, a passionate graphic and web designer with a love for creating visually stunning and user-friendly digital experiences. With 4 years of experience, I specialize in crafting clean, modern designs that blend creativity with functionality.
+
+                                    Whether it's designing eye-catching branding materials or building responsive websites, I thrive on turning ideas into impactful visuals. When I'm not designing, you can find me exploring the latest design trends, experimenting with new tools, creative writing, poetry or sipping my cup of coffee brainstorming my next idea.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">My Services</h3>
+                                <div class="mt-4 grid grid-cols-2 gap-4">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Logo design</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Brand design</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Portfolio Websites</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Motion Graphics</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">CV and Cover Letter Design</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Digital Marketing Materials</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Posters, Banners, and Flyers</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">Business Cards</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">E-books</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <p class="ml-3 text-sm text-gray-600">And more...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-5">
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 count-up" data-count="50">0</div>
+                    <div class="mt-2 text-sm font-medium text-gray-500 uppercase tracking-wider">Projects Done</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 count-up" data-count="45">0</div>
+                    <div class="mt-2 text-sm font-medium text-gray-500 uppercase tracking-wider">Happy Clients</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 count-up" data-count="10">0</div>
+                    <div class="mt-2 text-sm font-medium text-gray-500 uppercase tracking-wider">Partners</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 count-up" data-count="5">0</div>
+                    <div class="mt-2 text-sm font-medium text-gray-500 uppercase tracking-wider">Meetings</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-extrabold text-blue-600 count-up" data-count="4">0</div>
+                    <div class="mt-2 text-sm font-medium text-gray-500 uppercase tracking-wider">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Skills</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What I'm Great At
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    A blend of technical expertise and creative vision.
+                </p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                            <i class="fas fa-paint-brush text-blue-600 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Graphic Design</h3>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">
+                        Creating visually compelling designs that communicate your brand's message effectively.
+                    </p>
+                    <div class="mt-6">
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Expertise</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="mt-1 w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="skill-bar bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                            <i class="fas fa-code text-blue-600 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Web Design</h3>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">
+                        Building responsive, user-friendly websites that look great on any device.
+                    </p>
+                    <div class="mt-6">
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Expertise</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="mt-1 w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="skill-bar bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                            <i class="fas fa-pen-fancy text-blue-600 text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Creative Writing</h3>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">
+                        Crafting compelling narratives and content that engages and inspires your audience.
+                    </p>
+                    <div class="mt-6">
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Expertise</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="mt-1 w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="skill-bar bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Pricing</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Simple, Transparent Pricing
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Choose the plan that works best for your needs.
+                </p>
+            </div>
+
+            <div class="mt-16 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8">
+                <div class="price-card relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col transition duration-300">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold text-gray-900">Basic</h3>
+                        <p class="mt-4 flex items-baseline text-gray-900">
+                            <span class="text-5xl font-extrabold tracking-tight">$100</span>
+                            <span class="ml-1 text-xl font-semibold">/ Ksh 12000</span>
+                        </p>
+                        <p class="mt-2 text-gray-600">per year</p>
+                        <ul role="list" class="mt-6 space-y-4">
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Portfolio Website</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Graphic Design</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">5GB Storage</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Mail Support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium bg-blue-600 text-white hover:bg-blue-700 transition duration-300">
+                        Get Started
+                    </a>
+                </div>
+
+                <div class="price-card relative p-8 bg-white border border-blue-500 rounded-2xl shadow-sm flex flex-col transition duration-300">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 px-3 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full">
+                        Popular
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold text-gray-900">Pro</h3>
+                        <p class="mt-4 flex items-baseline text-gray-900">
+                            <span class="text-5xl font-extrabold tracking-tight">$250</span>
+                            <span class="ml-1 text-xl font-semibold">/ Ksh 32000</span>
+                        </p>
+                        <p class="mt-2 text-gray-600">per month</p>
+                        <ul role="list" class="mt-6 space-y-4">
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Website Design</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Brand Design</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">50GB Storage</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-600">Endless Support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium bg-blue-600 text-white hover:bg-blue-700 transition duration-300">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Portfolio</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Some of My Works
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    A showcase of my recent projects and designs.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="portfolio-item group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75">
+                            <img src="https://yungvitalhub.github.io/images/collection.png" alt="Project 1" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        Brand Collection
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">Brand Identity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75">
+                            <img src="https://yungvitalhub.github.io/images/abcd.png.png" alt="Project 2" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        ABCD Project
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">Web Design</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75">
+                            <img src="https://yungvitalhub.github.io/images/inform.png" alt="Project 3" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        Inform Platform
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">UI/UX Design</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75">
+                            <img src="https://yungvitalhub.github.io/images/seo.png" alt="Project 4" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        SEO Campaign
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">Digital Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 5" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        Corporate Branding
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">Logo & Identity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item group relative">
+                        <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 6" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <a href="#">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        Data Visualization
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-600">Infographics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What Clients Say
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+            </p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-medium text-gray-900">Sarah J.</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="mt-4 text-gray-600">
+                        <p>"Doug transformed our brand identity completely. His attention to detail and creative vision exceeded our expectations. Highly recommended!"</p>
+                    </blockquote>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Contact</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Let's Work Together
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Have a project in mind? Get in touch today.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                                <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Location</h3>
+                                <p class="mt-1 text-gray-600">Nakuru, KE</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                                <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Phone</h3>
+                                <p class="mt-1 text-gray-600">+254715676116</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                                <p class="mt-1 text-gray-600">douglaskpt@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-8">
+                            <h3 class="text-lg font-medium text-gray-900">Social Media</h3>
+                            <div class="flex space-x-6 mt-4">
+                                <a href="#" class="text-gray-500 hover:text-blue-600">
+                                    <i class="fab fa-twitter text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-blue-600">
+                                    <i class="fab fa-facebook text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-blue-600">
+                                    <i class="fab fa-instagram text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-blue-600">
+                                    <i class="fab fa-linkedin text-2xl"></i>
+                                </a>
+                                <a href="https://t.me/+ID3Ze3h1W2JhMDJk" class="text-gray-500 hover:text-blue-600">
+                                    <i class="fab fa-telegram text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 lg:mt-0">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                                <div class="mt-1">
+                                    <input type="text" name="name" id="name" autocomplete="name" class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                <div class="mt-1">
+                                    <input type="email" name="email" id="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                                <div class="mt-1">
+                                    <input type="text" name="subject" id="subject" class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                <div class="mt-1">
+                                    <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md"></textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+                <div>
+                    <div class="flex items-center">
+                        <img class="h-8 w-auto" src="https://yungvitalhub.github.io/images/yellowicon.png" alt="Dougnation Logo">
+                        <span class="ml-2 text-xl font-bold">DOUGNATION</span>
+                    </div>
+                    <p class="mt-4 text-gray-400">
+                        Turning ideas into impactful visuals that tell your brand's story.
+                    </p>
+                    <p class="mt-4 text-sm text-gray-500">
+                        Holla at your boi.
+                    </p>
+                </div>
+                <div class="mt-12 lg:mt-0">
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Quick Links
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="#about" class="block text-base text-gray-300 hover:text-white">About</a>
+                        <a href="#skills" class="block text-base text-gray-300 hover:text-white">Skills</a>
+                        <a href="#pricing" class="block text-base text-gray-300 hover:text-white">Pricing</a>
+                        <a href="#portfolio" class="block text-base text-gray-300 hover:text-white">Portfolio</a>
+                        <a href="#contact" class="block text-base text-gray-300 hover:text-white">Contact</a>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0">
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        
+                            <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                BATMAN
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 Dougnation. All rights reserved. Made with <i class="fas fa-heart text-red-500"></i> by Doug Nation in association with YUNGVITAL STUDIOS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Count up animation for stats
+        function animateCountUp() {
+            const counters = document.querySelectorAll('.count-up');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCountUp, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Intersection Observer for count-up animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCountUp();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.count-up').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
